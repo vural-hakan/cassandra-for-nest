@@ -1,0 +1,35 @@
+{
+  "name": "cassandra-for-nest",
+  "version": "1.0.0",
+  "description": "Cassandra for NestJS",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vural-hakan/cassandra-for-nest.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "npx ts-node test/test.server.ts"
+  },
+  "keywords": [
+    "cassandra",
+    "nestjs",
+    "typescript"
+  ],
+  "devDependencies": {
+    "@nestjs/platform-express": "^8.x",
+    "@types/minimist": "^1.2.x",
+    "@types/node": "^16.x",
+    "minimist": "^1.2.x",
+    "typescript": "^4.7.x"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "*",
+    "@nestjs/core": "*",
+    "cassandra-driver": "^4.x",
+    "reflect-metadata": "*",
+    "rxjs": "*"
+  },
+  "author": "Hakan VURAL <hakanvural.dev@gmail.com>",
+  "license": "ISC"
+}
