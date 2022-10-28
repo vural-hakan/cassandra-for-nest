@@ -13,23 +13,23 @@ const device_controller_1 = require("./device.controller");
 const device_entity_1 = require("./device.entity");
 const device_service_1 = require("./device.service");
 const env_util_1 = require("./env.util");
-let OrmTestModule = class OrmTestModule {
+let CassandraTestModule = class CassandraTestModule {
 };
-OrmTestModule = __decorate([
+CassandraTestModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            lib_1.CassandraOrmModule.forRoot({
+            lib_1.CassandraModule.forRoot({
                 contactPoints: [...env_util_1.default.host.split(',')],
                 authProvider: new cassandra_driver_1.auth.PlainTextAuthProvider(env_util_1.default.username, env_util_1.default.password),
                 localDataCenter: env_util_1.default.datacenter
             }),
-            lib_1.CassandraOrmModule.forFeature([
+            lib_1.CassandraModule.forFeature([
                 device_entity_1.default,
             ])
         ],
         controllers: [device_controller_1.default],
         providers: [device_service_1.default]
     })
-], OrmTestModule);
-exports.default = OrmTestModule;
-//# sourceMappingURL=orm-test.module.js.map
+], CassandraTestModule);
+exports.default = CassandraTestModule;
+//# sourceMappingURL=cassandra.test.module.js.map

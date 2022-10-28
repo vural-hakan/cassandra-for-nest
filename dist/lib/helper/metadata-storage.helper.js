@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class MetadataStorageHelper {
     static getClassMetadataKey(className) {
-        return `CassandraOrm_${className}`;
+        return `Cassandra_${className}`;
     }
     static addColumMetadata(className, options) {
         const key = this.getClassMetadataKey(className);

@@ -1,5 +1,5 @@
 # cassandra-for-nest
-Cassandra ORM wrapper for nestjs based on `cassandra-driver` package.
+Cassandra wrapper for nestjs based on `cassandra-driver` package.
 
 ## Install
 
@@ -43,30 +43,30 @@ export default class Device {
 Just like typeorm, you can use `forRoot` method to configure the database and use `forFeature` method to register entities:
 
 ```typescript
-// orm-test.module.ts
+// cassandra.test.module.ts
 import { Module } from "@nestjs/common";
 import { auth } from "cassandra-driver";
 
-import { CassandraOrmModule } from "cassandra-for-nest;
+import { CassandraModule } from "cassandra-for-nest;
 import DeviceController from "device.controller";
 import Device from "device.entity";
 import DeviceService from "device.service";
 
 @Module({
     imports: [
-        CassandraOrmModule.forRoot({ // database configuration
+        CassandraModule.forRoot({ // database configuration
             contactPoints: ['localhost'],
             authProvider: new auth.PlainTextAuthProvider('username', 'password'),
             localDataCenter: 'datacenter1'
         }),
-        CassandraOrmModule.forFeature([ // register entities
+        CassandraModule.forFeature([ // register entities
             Device
         ])
     ],
     controllers: [DeviceController], // related controller
     providers: [DeviceService] // related service
 })
-export default class OrmTestModule {}
+export default class CassandraTestModule {}
 ```
 
 ### Service Defination

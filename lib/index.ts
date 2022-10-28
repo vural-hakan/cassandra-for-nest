@@ -1,7 +1,7 @@
 // index.ts
 import 'reflect-metadata';
 
-export { default as CassandraOrmModule } from './module/cassandra-orm.module';
+export { default as CassandraModule } from './module/cassandra.module';
 
 export { default as BaseService } from './curd/base-service.curd';
 

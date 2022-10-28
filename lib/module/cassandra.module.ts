@@ -1,4 +1,4 @@
-// cassandra-orm.module.ts
+// cassandra.module.ts
 import { DynamicModule, Module } from "@nestjs/common";
 import { DseClientOptions } from "cassandra-driver";
 
@@ -6,7 +6,7 @@ import { getMapperProviders } from "../helper/providers.helper";
 import CassandraConnectionModule from "./cassandra-connection.module";
 
 @Module({})
-export default class CassandraOrmModule {
+export default class CassandraModule {
     /**
      * 
      * @param {DseClientOptions} options 数据库配置
@@ -14,7 +14,7 @@ export default class CassandraOrmModule {
      */
     static forRoot(options: DseClientOptions): DynamicModule {
         return {
-            module: CassandraOrmModule,
+            module: CassandraModule,
             imports: [CassandraConnectionModule.forRegister(options)]
         };
     }
@@ -28,7 +28,7 @@ export default class CassandraOrmModule {
         // 获取所有实体的mapper提供者
         const mapperProviders = getMapperProviders(Entities);
         return {
-            module: CassandraOrmModule,
+            module: CassandraModule,
             providers: mapperProviders,
             exports: mapperProviders  // 将提供者导出
         }
